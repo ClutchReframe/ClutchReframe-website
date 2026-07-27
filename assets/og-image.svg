@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
     <title id="title">ClutchReframe</title>
-    <desc id="desc">ClutchReframe product hub — automatic reframing for gameplay creators.</desc>
+    <desc id="desc">ClutchReframe Live for Dota 2 — automatic 9:16 gameplay reframing inside OBS.</desc>
     <defs>
         <linearGradient id="brand" x1="74" y1="68" x2="714" y2="528" gradientUnits="userSpaceOnUse">
             <stop stop-color="#00d9ff"/>
@@ -31,11 +31,11 @@
     </g>
 
     <text x="72" y="238" fill="url(#brand)" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" letter-spacing="-3">ClutchReframe</text>
-    <text x="76" y="306" fill="#94a3b8" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400">Automatic reframing tools for gameplay creators.</text>
+    <text x="76" y="306" fill="#94a3b8" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400">Automatic vertical reframing for gameplay.</text>
 
     <line x1="76" y1="390" x2="1124" y2="390" stroke="#ffffff" stroke-opacity=".08"/>
 
-    <text x="76" y="454" fill="#00d9ff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="3">PRODUCT HUB</text>
-    <text x="76" y="514" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="600">Live for Dota 2</text>
+    <text x="76" y="454" fill="#00d9ff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="3">CLUTCHREFRAME LIVE · INVITE-ONLY BETA</text>
+    <text x="76" y="514" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="600">9:16 Dota 2 output inside OBS</text>
     <text x="1098" y="514" fill="#00d9ff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" text-anchor="end">→</text>
 </svg>

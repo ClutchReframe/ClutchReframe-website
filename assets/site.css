@@ -231,7 +231,7 @@ svg {
 }
 
 .hero-inner {
-    width: min(100%, 920px);
+    width: min(100%, var(--page-width));
 }
 
 .eyebrow,
@@ -254,7 +254,7 @@ svg {
 }
 
 .hero-title {
-    max-width: 920px;
+    max-width: var(--page-width);
     margin: 0 auto 28px;
     font-family: "Outfit", "Segoe UI", sans-serif;
     font-size: clamp(3.4rem, 8.4vw, 6.8rem);
@@ -330,7 +330,7 @@ svg {
 }
 
 .section-header {
-    max-width: 680px;
+    max-width: 760px;
     margin: 0 auto 48px;
     text-align: center;
 }
