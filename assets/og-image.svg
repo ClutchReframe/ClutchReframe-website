@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+    <title id="title">ClutchReframe</title>
+    <desc id="desc">ClutchReframe product hub — automatic reframing for gameplay creators.</desc>
+    <defs>
+        <linearGradient id="brand" x1="74" y1="68" x2="714" y2="528" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#00d9ff"/>
+            <stop offset="1" stop-color="#a78bfa"/>
+        </linearGradient>
+        <linearGradient id="panel" x1="60" y1="40" x2="1140" y2="590" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#0b111c"/>
+            <stop offset="1" stop-color="#080712"/>
+        </linearGradient>
+        <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity=".025"/>
+        </pattern>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="36"/>
+        </filter>
+    </defs>
+
+    <rect width="1200" height="630" fill="#05050d"/>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+    <circle cx="270" cy="210" r="210" fill="#00d9ff" fill-opacity=".07" filter="url(#glow)"/>
+    <circle cx="935" cy="440" r="230" fill="#7c3aed" fill-opacity=".08" filter="url(#glow)"/>
+    <rect x="28" y="28" width="1144" height="574" rx="22" fill="url(#panel)" fill-opacity=".62" stroke="#00d9ff" stroke-opacity=".24"/>
+
+    <g transform="translate(72 72)">
+        <rect width="72" height="72" rx="18" fill="#05050d" stroke="url(#brand)" stroke-width="2"/>
+        <path d="M24 26c0-4.4 3.6-8 8-8h20v9H34c-.6 0-1 .4-1 1v17c0 .6.4 1 1 1h18v9H32c-4.4 0-8-3.6-8-8V26Z" fill="url(#brand)"/>
+        <path d="M39 32h20v9H39z" fill="#e2e8f0"/>
+    </g>
+
+    <text x="72" y="238" fill="url(#brand)" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" letter-spacing="-3">ClutchReframe</text>
+    <text x="76" y="306" fill="#94a3b8" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400">Automatic reframing tools for gameplay creators.</text>
+
+    <line x1="76" y1="390" x2="1124" y2="390" stroke="#ffffff" stroke-opacity=".08"/>
+
+    <text x="76" y="454" fill="#00d9ff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="3">PRODUCT HUB</text>
+    <text x="76" y="514" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="600">Live for Dota 2</text>
+    <text x="1098" y="514" fill="#00d9ff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" text-anchor="end">→</text>
+</svg>
