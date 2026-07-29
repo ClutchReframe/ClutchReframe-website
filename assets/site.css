@@ -599,28 +599,10 @@ svg {
 }
 
 .principle-card {
-    min-height: 290px;
     padding: 32px;
     border: 1px solid var(--border);
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.018);
-}
-
-.icon-box {
-    display: grid;
-    width: 48px;
-    height: 48px;
-    margin-bottom: 25px;
-    place-items: center;
-    border: 1px solid rgba(0, 217, 255, 0.17);
-    border-radius: 13px;
-    background: linear-gradient(135deg, rgba(0, 217, 255, 0.09), rgba(124, 58, 237, 0.1));
-    color: var(--cyan);
-}
-
-.icon-box svg {
-    width: 23px;
-    height: 23px;
 }
 
 .principle-card h3 {
@@ -1022,10 +1004,6 @@ svg {
 @media (max-width: 800px) {
     .principle-grid {
         grid-template-columns: 1fr;
-    }
-
-    .principle-card {
-        min-height: 0;
     }
 
     .footer-grid {
