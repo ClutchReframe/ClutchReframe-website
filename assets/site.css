@@ -26,6 +26,8 @@
     --purple: #7c3aed;
     --purple-bright: #a78bfa;
     --green: #48c78e;
+    --amber: #f5b94c;
+    --amber-bright: #ffd27a;
     --bg: #05050d;
     --bg-elevated: #090913;
     --border: rgba(255, 255, 255, 0.065);
@@ -68,6 +70,11 @@ body::before {
 
 a {
     color: inherit;
+}
+
+button {
+    color: inherit;
+    font: inherit;
 }
 
 svg {
@@ -166,31 +173,58 @@ svg {
     font-weight: 800;
 }
 
-.nav-product-link {
+.nav-products {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-product-link,
+.nav-product-trigger {
     display: inline-flex;
     min-height: 40px;
     align-items: center;
     gap: 8px;
     padding: 8px 13px;
-    border: 1px solid var(--border-accent);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    background: rgba(0, 217, 255, 0.07);
-    color: var(--cyan);
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--text-secondary);
     font-size: 0.82rem;
     font-weight: 600;
+    line-height: 1;
     text-decoration: none;
+    cursor: pointer;
     transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 
 .nav-product-link:hover {
     border-color: rgba(0, 217, 255, 0.38);
     background: rgba(0, 217, 255, 0.12);
+    color: var(--cyan);
+    transform: translateY(-1px);
+}
+
+.nav-product-trigger:hover {
+    border-color: rgba(245, 185, 76, 0.34);
+    background: rgba(245, 185, 76, 0.08);
+    color: var(--amber-bright);
     transform: translateY(-1px);
 }
 
 .nav-product-link svg {
     width: 15px;
     height: 15px;
+}
+
+.nav-status-dot,
+.button-status-dot {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 11px rgba(245, 185, 76, 0.5);
 }
 
 .hero {
@@ -254,17 +288,17 @@ svg {
 }
 
 .hero-title {
-    max-width: var(--page-width);
+    max-width: 1040px;
     margin: 0 auto 28px;
     font-family: "Outfit", "Segoe UI", sans-serif;
-    font-size: clamp(3.4rem, 8.4vw, 6.8rem);
+    font-size: clamp(3.25rem, 7.1vw, 6.15rem);
     font-weight: 800;
     letter-spacing: -0.057em;
-    line-height: 0.96;
+    line-height: 0.98;
 }
 
 .hero-subtitle {
-    max-width: 710px;
+    max-width: 760px;
     margin: 0 auto 36px;
     color: var(--text-secondary);
     font-size: clamp(1rem, 2vw, 1.18rem);
@@ -290,6 +324,7 @@ svg {
     font-weight: 600;
     line-height: 1;
     text-decoration: none;
+    cursor: pointer;
     transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -323,6 +358,11 @@ svg {
     background: rgba(0, 217, 255, 0.05);
 }
 
+.button-review:hover {
+    border-color: rgba(245, 185, 76, 0.32);
+    background: rgba(245, 185, 76, 0.06);
+}
+
 .products-section {
     padding: 112px 0 124px;
     border-block: 1px solid var(--border);
@@ -353,47 +393,72 @@ svg {
     font-size: 1rem;
 }
 
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
 .product-card {
     position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    min-height: 310px;
-    align-items: center;
-    gap: 60px;
+    display: flex;
+    min-height: 520px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 38px;
     overflow: hidden;
-    max-width: 960px;
-    margin-inline: auto;
-    padding: 52px;
-    border: 1px solid rgba(0, 217, 255, 0.17);
+    padding: 42px;
+    border: 1px solid var(--border);
     border-radius: 22px;
-    background:
-        linear-gradient(135deg, rgba(0, 217, 255, 0.055), rgba(124, 58, 237, 0.045)),
-        rgba(255, 255, 255, 0.014);
-    text-decoration: none;
+    background: rgba(255, 255, 255, 0.018);
     box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
     transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
 
+.product-card-clips {
+    border-color: rgba(245, 185, 76, 0.13);
+    background:
+        linear-gradient(145deg, rgba(245, 185, 76, 0.045), rgba(124, 58, 237, 0.035)),
+        rgba(255, 255, 255, 0.014);
+}
+
+.product-card-live {
+    border-color: rgba(0, 217, 255, 0.15);
+    background:
+        linear-gradient(145deg, rgba(0, 217, 255, 0.05), rgba(124, 58, 237, 0.045)),
+        rgba(255, 255, 255, 0.014);
+}
+
 .product-card::after {
     position: absolute;
-    top: -190px;
-    right: -145px;
-    width: 430px;
-    height: 430px;
+    top: -170px;
+    right: -175px;
+    width: 390px;
+    height: 390px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.14), transparent 66%);
     content: "";
     pointer-events: none;
 }
 
+.product-card-clips::after {
+    background: radial-gradient(circle, rgba(245, 185, 76, 0.12), transparent 66%);
+}
+
+.product-card-live::after {
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.15), transparent 66%);
+}
+
 .product-card:hover {
-    border-color: rgba(0, 217, 255, 0.32);
     box-shadow: 0 32px 90px rgba(0, 0, 0, 0.32);
     transform: translateY(-4px);
 }
 
-.product-card:focus-visible {
-    outline-offset: 6px;
+.product-card-clips:hover {
+    border-color: rgba(245, 185, 76, 0.28);
+}
+
+.product-card-live:hover {
+    border-color: rgba(0, 217, 255, 0.3);
 }
 
 .product-copy,
@@ -419,16 +484,33 @@ svg {
     align-items: center;
     gap: 7px;
     padding: 6px 9px;
-    border: 1px solid rgba(72, 199, 142, 0.2);
     border-radius: 999px;
-    background: rgba(72, 199, 142, 0.055);
-    color: #77d7aa;
 }
 
 .status-badge > span {
     width: 6px;
     height: 6px;
     border-radius: 50%;
+}
+
+.status-badge-review {
+    border: 1px solid rgba(245, 185, 76, 0.22);
+    background: rgba(245, 185, 76, 0.06);
+    color: var(--amber-bright);
+}
+
+.status-badge-review > span {
+    background: var(--amber);
+    box-shadow: 0 0 10px rgba(245, 185, 76, 0.58);
+}
+
+.status-badge-live {
+    border: 1px solid rgba(72, 199, 142, 0.2);
+    background: rgba(72, 199, 142, 0.055);
+    color: #77d7aa;
+}
+
+.status-badge-live > span {
     background: var(--green);
     box-shadow: 0 0 10px rgba(72, 199, 142, 0.65);
 }
@@ -437,7 +519,7 @@ svg {
     margin-bottom: 14px;
     color: var(--text-strong);
     font-family: "Outfit", "Segoe UI", sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.85rem, 3.1vw, 2.55rem);
     font-weight: 760;
     letter-spacing: -0.035em;
     line-height: 1.08;
@@ -469,13 +551,27 @@ svg {
 
 .product-action {
     display: inline-flex;
+    width: fit-content;
     flex: 0 0 auto;
     align-items: center;
     gap: 9px;
     color: var(--cyan);
     font-size: 0.88rem;
     font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
     white-space: nowrap;
+}
+
+.product-action-button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.product-card-clips .product-action {
+    color: var(--amber-bright);
 }
 
 .product-action svg {
@@ -484,8 +580,305 @@ svg {
     transition: transform 180ms ease;
 }
 
-.product-card:hover .product-action svg {
+.product-action:hover svg {
     transform: translateX(4px);
+}
+
+.product-action-button:hover svg {
+    transform: rotate(10deg);
+}
+
+.principles-section {
+    padding: 120px 0;
+}
+
+.principle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.principle-card {
+    min-height: 290px;
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.018);
+}
+
+.icon-box {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 25px;
+    place-items: center;
+    border: 1px solid rgba(0, 217, 255, 0.17);
+    border-radius: 13px;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.09), rgba(124, 58, 237, 0.1));
+    color: var(--cyan);
+}
+
+.icon-box svg {
+    width: 23px;
+    height: 23px;
+}
+
+.principle-card h3 {
+    margin-bottom: 11px;
+    color: var(--text-strong);
+    font-family: "Outfit", "Segoe UI", sans-serif;
+    font-size: 1.22rem;
+    font-weight: 700;
+}
+
+.principle-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.workflow-section {
+    padding: 120px 0 132px;
+    border-block: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.workflow-map {
+    position: relative;
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.workflow-source {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 13px;
+    margin: 0 auto 58px;
+    padding: 13px 18px;
+    border: 1px solid var(--border-accent);
+    border-radius: 14px;
+    background: var(--bg-elevated);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.24);
+}
+
+.workflow-source::after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 1px;
+    height: 59px;
+    background: linear-gradient(var(--border-accent), rgba(255, 255, 255, 0.08));
+    content: "";
+}
+
+.workflow-source-mark {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 9px;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(124, 58, 237, 0.18));
+    color: var(--cyan);
+    font-family: "Outfit", "Segoe UI", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.workflow-source div {
+    display: grid;
+    line-height: 1.25;
+}
+
+.workflow-source div span {
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.workflow-source strong {
+    color: var(--text-strong);
+    font-size: 0.94rem;
+}
+
+.workflow-branches {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.workflow-branches::before {
+    position: absolute;
+    top: -29px;
+    right: 25%;
+    left: 25%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.09);
+    content: "";
+}
+
+.workflow-lane {
+    position: relative;
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(5, 5, 13, 0.74);
+}
+
+.workflow-lane::before {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.09);
+    content: "";
+}
+
+.workflow-lane-clips {
+    border-color: rgba(245, 185, 76, 0.14);
+}
+
+.workflow-lane-live {
+    border-color: rgba(0, 217, 255, 0.15);
+}
+
+.workflow-lane-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.workflow-product {
+    font-family: "Outfit", "Segoe UI", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 750;
+}
+
+.workflow-lane-clips .workflow-product {
+    color: var(--amber-bright);
+}
+
+.workflow-lane-live .workflow-product {
+    color: var(--cyan);
+}
+
+.workflow-timing {
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.workflow-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    list-style: none;
+}
+
+.workflow-steps li {
+    display: grid;
+    min-height: 82px;
+    align-content: center;
+    gap: 5px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.018);
+    color: var(--text-secondary);
+    font-size: 0.74rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.workflow-steps li span {
+    color: var(--text-muted);
+    font-family: ui-monospace, "Cascadia Code", monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.08em;
+}
+
+.review-popover {
+    position: fixed;
+    inset: 0;
+    display: none;
+    width: min(100% - 36px, 470px);
+    max-height: min(100% - 36px, 620px);
+    margin: auto;
+    overflow-y: auto;
+    padding: 38px;
+    border: 1px solid rgba(245, 185, 76, 0.24);
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 85% 8%, rgba(124, 58, 237, 0.16), transparent 42%),
+        #090913;
+    color: var(--text);
+    box-shadow: 0 30px 110px rgba(0, 0, 0, 0.62);
+    text-align: center;
+}
+
+.review-popover:popover-open {
+    display: block;
+}
+
+.review-popover::backdrop {
+    background: rgba(2, 3, 10, 0.74);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.review-popover-icon {
+    display: grid;
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 20px;
+    place-items: center;
+    border: 1px solid rgba(245, 185, 76, 0.28);
+    border-radius: 15px;
+    background: rgba(245, 185, 76, 0.07);
+    color: var(--amber-bright);
+}
+
+.review-popover-icon svg {
+    width: 25px;
+    height: 25px;
+}
+
+.review-popover-label {
+    margin-bottom: 9px;
+    color: var(--amber-bright);
+    font-size: 0.69rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.review-popover h2 {
+    margin-bottom: 14px;
+    color: var(--text-strong);
+    font-family: "Outfit", "Segoe UI", sans-serif;
+    font-size: clamp(1.65rem, 5vw, 2.15rem);
+    font-weight: 750;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+}
+
+.review-popover > p:last-of-type {
+    margin-bottom: 27px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+.review-popover-close {
+    min-width: 120px;
 }
 
 .site-footer {
@@ -520,17 +913,33 @@ svg {
     text-transform: uppercase;
 }
 
-.footer-col a {
+.footer-col a,
+.footer-col button {
     display: block;
     width: fit-content;
+    padding: 0;
+    border: 0;
+    background: transparent;
     color: var(--text-muted);
     font-size: 0.8rem;
+    line-height: 1.55;
     overflow-wrap: anywhere;
+    text-align: left;
     text-decoration: none;
 }
 
-.footer-col a:hover {
+.footer-col a + a,
+.footer-col button + a {
+    margin-top: 7px;
+}
+
+.footer-col a:hover,
+.footer-col button:hover {
     color: var(--cyan);
+}
+
+.footer-col button {
+    cursor: pointer;
 }
 
 .footer-divider {
@@ -594,15 +1003,29 @@ svg {
     text-align: center;
 }
 
-@media (max-width: 800px) {
-    .product-card {
+@media (max-width: 900px) {
+    .product-grid {
         grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        min-height: 0;
         gap: 34px;
         padding: 42px;
     }
 
     .product-action {
         width: fit-content;
+    }
+}
+
+@media (max-width: 800px) {
+    .principle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .principle-card {
+        min-height: 0;
     }
 
     .footer-grid {
@@ -627,7 +1050,7 @@ svg {
     }
 
     .hero-title {
-        font-size: clamp(3.15rem, 14.8vw, 4.8rem);
+        font-size: clamp(2.75rem, 13vw, 4.55rem);
     }
 
     .hero-actions {
@@ -637,13 +1060,29 @@ svg {
         margin-inline: auto;
     }
 
-    .products-section {
+    .products-section,
+    .principles-section,
+    .workflow-section {
         padding: 88px 0 96px;
     }
 
     .product-card {
         min-height: 0;
         padding: 34px 27px;
+    }
+
+    .workflow-source {
+        margin-bottom: 24px;
+    }
+
+    .workflow-source::after,
+    .workflow-branches::before,
+    .workflow-lane::before {
+        display: none;
+    }
+
+    .workflow-branches {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -657,12 +1096,14 @@ svg {
         font-size: 0.97rem;
     }
 
-    .nav-product-link {
-        padding-inline: 11px;
+    .nav-products {
+        gap: 6px;
     }
 
-    .nav-link-prefix {
-        display: none;
+    .nav-product-link,
+    .nav-product-trigger {
+        min-height: 38px;
+        padding-inline: 10px;
     }
 
     .eyebrow {
@@ -681,6 +1122,26 @@ svg {
         gap: 10px;
     }
 
+    .workflow-lane {
+        padding: 26px 22px;
+    }
+
+    .workflow-lane-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .workflow-steps li {
+        min-height: 78px;
+        padding: 9px 5px;
+        font-size: 0.68rem;
+    }
+
+    .review-popover {
+        padding: 30px 24px;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -688,6 +1149,16 @@ svg {
 
     .footer-intro {
         grid-column: auto;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-logo > .gradient-text {
+        display: none;
+    }
+
+    .nav-inner {
+        gap: 10px;
     }
 }
 
