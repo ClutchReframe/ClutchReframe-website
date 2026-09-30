@@ -26,16 +26,13 @@
         </a>
 
         <div class="nav-products" role="group" aria-label="Products">
-            <button
-                class="nav-product-trigger"
-                type="button"
-                popovertarget="clips-review-popover"
-                aria-label="ClutchReframe Clips — under review by Overwolf"
-            >
-                <span class="nav-status-dot" aria-hidden="true"></span>
+            <a class="nav-product-link" href="https://getclips.clutchreframe.com/" aria-label="Explore ClutchReframe Clips for League of Legends and Dota 2">
                 <span>Clips</span>
-            </button>
-            <a class="nav-product-link" href="https://live-dota2.clutchreframe.com/" aria-label="Explore ClutchReframe Live for Dota 2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+            </a>
+            <a class="nav-product-link" href="https://live-dota2.clutchreframe.com/" aria-label="Explore ClutchReframe Live for League of Legends and Dota 2">
                 <span>Live</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M5 12h14M13 6l6 6-6 6"/>
@@ -49,7 +46,7 @@
     <div class="error-inner">
         <p class="section-label">404 · Page Not Found</p>
         <h1 class="gradient-text">This page is out of frame.</h1>
-        <p>The address may have changed, or the page may no longer exist. Return to ClutchReframe or continue to ClutchReframe Live for Dota 2.</p>
+        <p>The address may have changed, or the page may no longer exist. Return to ClutchReframe to explore Clips and Live for League of Legends and Dota 2.</p>
 
         <div class="hero-actions">
             <a class="button button-primary" href="/">
@@ -58,40 +55,9 @@
                     <path d="M19 12H5M11 6l-6 6 6 6"/>
                 </svg>
             </a>
-            <a class="button button-secondary" href="https://live-dota2.clutchreframe.com/">
-                Explore ClutchReframe Live
-            </a>
         </div>
     </div>
 </main>
-
-<div
-    class="review-popover"
-    id="clips-review-popover"
-    popover="auto"
-    role="dialog"
-    aria-labelledby="clips-review-title"
-    aria-describedby="clips-review-description"
->
-    <div class="review-popover-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M12 7v5l3 2"/>
-        </svg>
-    </div>
-    <p class="review-popover-label">ClutchReframe Clips</p>
-    <h2 id="clips-review-title">ClutchReframe Clips is under review</h2>
-    <p id="clips-review-description">The Dota&nbsp;2 app is currently under review by Overwolf and is not yet publicly available. Please check back soon.</p>
-    <button
-        class="button button-primary review-popover-close"
-        type="button"
-        popovertarget="clips-review-popover"
-        popovertargetaction="hide"
-        autofocus
-    >
-        Got it
-    </button>
-</div>
 
 <footer class="site-footer compact-footer">
     <div class="container">
