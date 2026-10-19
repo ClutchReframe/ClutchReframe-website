@@ -1,6 +1,6 @@
 # ClutchReframe 根域名网站部署指南
 
-更新日期：2026-09-30
+更新日期：2026-10-18
 
 本网站使用 GitHub Pages 发布，并以以下地址作为唯一正式入口：
 
@@ -299,9 +299,9 @@ https://clutchreframe.com/og-image.png
 - 根域名首页返回 `200 OK`。
 - `www` 自动跳转到 `https://clutchreframe.com/`。
 - HTTPS 无证书警告。
-- 首页和 404 页的 Clips 入口跳转到
-  `https://getclips.clutchreframe.com/`，Live 入口跳转到
-  `https://live-dota2.clutchreframe.com/`。
+- 首页和 404 页只提供 Clips 入口，跳转到
+  `https://getclips.clutchreframe.com/`；首页、404 页和分享图不出现 Live 或
+  OBS 表述。
 - 首页及分享图统一展示 League of Legends 和 Dota 2；Clips 入口不再显示审核状态。
 - 现有子域名仍可独立访问。
 - canonical、Open Graph、robots、sitemap 和 `CNAME` 全部使用根域名。
