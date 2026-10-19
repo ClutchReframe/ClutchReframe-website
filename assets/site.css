@@ -32,7 +32,7 @@
     --text-secondary: #94a3b8;
     --text-muted: #718096;
     --nav-height: 72px;
-    --page-width: 1100px;
+    --page-width: 1200px;
 }
 
 html {
@@ -165,32 +165,32 @@ svg {
 
 .nav-product-link {
     display: inline-flex;
-    min-height: 40px;
+    min-height: 42px;
     align-items: center;
     gap: 8px;
-    padding: 8px 13px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.025);
-    color: var(--text-secondary);
-    font-size: 0.82rem;
+    padding: 0 16px;
+    border: 1px solid rgba(0, 217, 255, 0.32);
+    border-radius: 10px;
+    background: rgba(0, 217, 255, 0.07);
+    color: var(--cyan-bright);
+    font-size: 0.875rem;
     font-weight: 600;
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
-    transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+    transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .nav-product-link:hover {
-    border-color: rgba(0, 217, 255, 0.38);
-    background: rgba(0, 217, 255, 0.12);
-    color: var(--cyan);
+    border-color: rgba(0, 217, 255, 0.55);
+    background: rgba(0, 217, 255, 0.14);
+    color: var(--text-strong);
     transform: translateY(-1px);
 }
 
 .nav-product-link svg {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
 }
 
 .hero {
@@ -199,39 +199,36 @@ svg {
     min-height: 100svh;
     place-items: center;
     overflow: hidden;
-    padding: calc(var(--nav-height) + 88px) 24px 112px;
-    text-align: center;
+    padding: calc(var(--nav-height) + 64px) 24px 96px;
 }
 
-.hero::before,
-.hero::after {
+.hero-inner {
+    display: grid;
+    width: min(100%, var(--page-width));
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: clamp(40px, 5vw, 72px);
+}
+
+.hero-visual {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero-visual::before {
     position: absolute;
+    inset: -22% -14%;
     z-index: -1;
-    border-radius: 50%;
+    background:
+        radial-gradient(closest-side at 46% 50%, rgba(0, 217, 255, 0.13), transparent),
+        radial-gradient(closest-side at 64% 62%, rgba(124, 58, 237, 0.16), transparent);
     content: "";
     pointer-events: none;
 }
 
-.hero::before {
-    top: 37%;
-    left: 50%;
-    width: min(780px, 88vw);
-    aspect-ratio: 1;
-    background: radial-gradient(circle, rgba(0, 217, 255, 0.09), transparent 68%);
-    transform: translate(-50%, -50%);
-}
-
-.hero::after {
-    top: 42%;
-    left: 57%;
-    width: min(570px, 72vw);
-    aspect-ratio: 1;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.1), transparent 68%);
-    transform: translate(-50%, -50%);
-}
-
-.hero-inner {
-    width: min(100%, var(--page-width));
+.hero-visual svg {
+    width: 100%;
+    height: auto;
 }
 
 .eyebrow,
@@ -254,20 +251,31 @@ svg {
 }
 
 .hero-title {
-    max-width: 1040px;
-    margin: 0 auto 28px;
+    margin-bottom: 26px;
     font-family: "Outfit", "Segoe UI", sans-serif;
-    font-size: clamp(3.25rem, 7.1vw, 6.15rem);
+    font-size: clamp(3rem, 5.6vw, 4.75rem);
     font-weight: 800;
-    letter-spacing: -0.057em;
-    line-height: 0.98;
+    letter-spacing: -0.05em;
+    line-height: 1;
 }
 
-.hero-subtitle {
-    max-width: 760px;
-    margin: 0 auto 36px;
+.hero-lead {
+    max-width: 32rem;
+    margin-bottom: 36px;
+    color: #cbd5e1;
+    font-size: clamp(1.125rem, 1.45vw, 1.3125rem);
+    line-height: 1.6;
+}
+
+.hero-lead strong {
+    color: var(--text-strong);
+    font-weight: 600;
+}
+
+.hero-meta {
+    margin-top: 18px;
     color: var(--text-secondary);
-    font-size: clamp(1rem, 2vw, 1.18rem);
+    font-size: 0.9375rem;
 }
 
 .hero-actions {
@@ -279,16 +287,16 @@ svg {
 
 .button {
     display: inline-flex;
-    min-height: 50px;
+    min-height: 60px;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    padding: 13px 21px;
+    gap: 12px;
+    padding: 0 30px;
     border: 1px solid transparent;
-    border-radius: 10px;
-    font-size: 0.9rem;
+    border-radius: 12px;
+    font-size: 1.0625rem;
     font-weight: 600;
-    line-height: 1;
+    line-height: 1.2;
     text-decoration: none;
     cursor: pointer;
     transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
@@ -299,8 +307,8 @@ svg {
 }
 
 .button svg {
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
 }
 
 .button-primary {
@@ -432,6 +440,14 @@ svg {
     text-align: center;
 }
 
+@media (max-width: 960px) {
+    .hero-inner {
+        width: min(100%, 640px);
+        grid-template-columns: minmax(0, 1fr);
+        gap: 48px;
+    }
+}
+
 @media (max-width: 800px) {
     .footer-grid {
         grid-template-columns: 1.5fr 1fr;
@@ -449,13 +465,33 @@ svg {
         width: min(100% - 36px, var(--page-width));
     }
 
+    .nav-product-link {
+        display: none;
+    }
+
     .hero {
         min-height: auto;
-        padding: calc(var(--nav-height) + 88px) 18px 96px;
+        padding: calc(var(--nav-height) + 40px) 18px 64px;
+    }
+
+    .hero-inner {
+        gap: 40px;
     }
 
     .hero-title {
-        font-size: clamp(2.75rem, 13vw, 4.55rem);
+        font-size: clamp(2.5rem, 12vw, 3rem);
+    }
+
+    .hero-lead {
+        margin-bottom: 28px;
+    }
+
+    .hero-copy .button {
+        width: 100%;
+        min-height: 56px;
+        gap: 10px;
+        padding-inline: 18px;
+        font-size: clamp(0.9375rem, 4.4vw, 1.0625rem);
     }
 
     .hero-actions {
@@ -476,11 +512,6 @@ svg {
         font-size: 0.97rem;
     }
 
-    .nav-product-link {
-        min-height: 38px;
-        padding-inline: 10px;
-    }
-
     .eyebrow {
         padding: 7px 11px;
         font-size: 0.66rem;
@@ -494,16 +525,6 @@ svg {
 
     .footer-intro {
         grid-column: auto;
-    }
-}
-
-@media (max-width: 360px) {
-    .nav-logo > .gradient-text {
-        display: none;
-    }
-
-    .nav-inner {
-        gap: 10px;
     }
 }
 
